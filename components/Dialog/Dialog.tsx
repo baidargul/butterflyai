@@ -27,6 +27,7 @@ const Dialog = (props: Props) => {
                 src={props.image.image}
                 alt={props.image.prompt}
                 className="w-[150px] h-[150px] sm:w-[260px] sm:h-[260px] rounded-md object-contain"
+                onClick={toggleModel}
               />
               <div className="w-full px-2">
                 <p className="text-lg font-semibold italic select-text cursor-text selection:bg-zinc-200">
