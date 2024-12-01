@@ -20,13 +20,13 @@ const Dialog = (props: Props) => {
     <div>
       <div onClick={toggleModel}>{props.children}</div>
       {isOpen && (
-        <div className="absolute bg-white inset-0 p-2 rounded-md overflow-hidden">
+        <div className="absolute bg-white inset-0 p-2 rounded-md overflow-y-auto sm:overflow-hidden">
           <div className="p-2">
-            <div className="flex flex-col sm:flex-row gap-2 items-start">
+            <div className="flex flex-row sm:flex-row gap-2 items-start">
               <img
                 src={props.image.image}
                 alt={props.image.prompt}
-                className="w-[260px] h-[260px] rounded-md object-contain"
+                className="w-[150px] h-[150px] sm:w-[260px] sm:h-[260px] rounded-md object-contain"
               />
               <div className="w-full px-2">
                 <p className="text-lg font-semibold italic select-text cursor-text selection:bg-zinc-200">
