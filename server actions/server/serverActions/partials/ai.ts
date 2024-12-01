@@ -23,8 +23,21 @@ async function fetchWithTimeout(
   }
 }
 
-async function create(prompt: string) {
-  console.log(prompt);
+type createProps = {
+  inputs: string;
+  negative_prompt: string[];
+  num_inference_steps: number;
+  target_size: { width: number; height: number };
+  seed: number;
+};
+
+async function create(
+  inputs: string,
+  negative_prompt: string[],
+  num_inference_steps: number,
+  target_size: { width: number; height: number },
+  seed: number
+) {
   try {
     const response = await fetch(
       "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev",
@@ -34,7 +47,13 @@ async function create(prompt: string) {
           "Content-Type": "application/json",
         },
         method: "POST",
-        body: JSON.stringify({ inputs: prompt }),
+        body: JSON.stringify({
+          inputs: inputs,
+          negative_prompt: negative_prompt,
+          num_inference_steps: num_inference_steps,
+          target_size: target_size,
+          seed: seed,
+        }),
       }
     );
     const result = await response.blob();
