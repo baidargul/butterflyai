@@ -167,6 +167,10 @@ const GeneratorPanel = (props: Props) => {
           >
             {isCreating ? `${formatTime(elapsedTime)}` : "Generate"}
           </button>
+          <div className="text-xs my-1 text-zinc-500">
+            ⚠️ This tool is build on free APIs which may impact speed of
+            generating images.
+          </div>
         </div>
       </div>
       <div>
