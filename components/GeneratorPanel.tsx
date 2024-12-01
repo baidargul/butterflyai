@@ -180,7 +180,9 @@ const GeneratorPanel = (props: Props) => {
             AI
           </span>
         </div>
-        <div className="min-w-[250px]">{<ImageViewer image={image} />}</div>
+        <div className="min-w-[250px] pointer-events-none select-none">
+          {<ImageViewer image={image} />}
+        </div>
       </div>
     </div>
   );

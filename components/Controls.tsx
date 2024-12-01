@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import GeneratorPanel from "./GeneratorPanel";
 import ImageViewer from "./ImageViewer";
+import Dialog from "./Dialog/Dialog";
 
 type Props = {};
 
@@ -15,7 +16,6 @@ const Controls = (props: Props) => {
     image: string;
     created_at: string;
   }) => {
-    //copy prompt to clipboard
     navigator.clipboard.writeText(image.prompt);
   };
 
@@ -32,7 +32,9 @@ const Controls = (props: Props) => {
                 key={i}
                 className="flex flex-col gap-1 cursor-pointer select-none mb-1 overflow-hidden"
               >
-                <ImageViewer image={image.image} />
+                <Dialog image={image}>
+                  <ImageViewer image={image.image} />
+                </Dialog>
                 <div
                   onClick={() => handleOldImageClick(image)}
                   className="tracking-wide p-1 bg-gradient-to-r from-white to-zinc-50 border border-zinc-200 rounded text-xs line-clamp-1 italic active:scale-95 transition-all duration-100 ease-in-out"
