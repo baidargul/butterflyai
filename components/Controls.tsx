@@ -20,12 +20,12 @@ const Controls = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col min-h-[100dvh] justify-center items-center">
+    <div className="flex flex-col gap-4 md:flex-row  justify-center items-center sm:items-start">
       <div>
         <GeneratorPanel setImages={setImages} />
       </div>
       {images.length > 0 && (
-        <div className="columns-2 sm:columns-4 lg:columns-8 my-4 p-4 pb-2 gap-2 w-full drop-shadow-sm bg-gradient-to-b from-white to-zinc-50 rounded border border-zinc-200 place-items-center justify-center justify-items-center place-content-center">
+        <div className="columns-2 sm:columns-4 bg-zinc-50 p-10 rounded-md gap-2 w-full drop-shadow-md bg-gradient-to-b from-white to-zinc-50 border border-zinc-200 place-items-center justify-center justify-items-center place-content-center">
           {images.map((image, i) => {
             return (
               <div

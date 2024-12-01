@@ -87,43 +87,54 @@ const GeneratorPanel = (props: Props) => {
   }, [isCreating]);
 
   return (
-    <div className="flex flex-col-reverse mt-4 sm:mt-0 sm:flex-row justify-center gap-2 sm:gap-10 w-full">
+    <div className="flex flex-col-reverse mt-4 sm:mt-0 sm:flex-row justify-center gap-2 sm:gap-10 w-full bg-zinc-50 drop-shadow-md rounded-md p-10">
       <div className="flex flex-col gap-2 w-full">
         <span className="font-semibold text-sm sm:text-md">Image Prompt:</span>
         <textarea
+          disabled={isCreating}
           value={prompt}
           onChange={handlePromptChange}
           className="p-2 appearance-none outline-none ring-0 border rounded-md min-w-[280px] w-full text-sm font-mono"
-          rows={8}
+          rows={5}
         ></textarea>
         <span className="font-semibold text-sm sm:text-md">
           Negative Prompt:
         </span>
         <textarea
+          disabled={isCreating}
           value={negativePrompt}
           onChange={handleNegativePromptChange}
           className="p-2 appearance-none outline-none ring-0 border rounded-md min-w-[280px] w-full text-sm font-mono"
           rows={5}
         ></textarea>
-        <span className="font-semibold text-sm sm:text-md">
-          Inference steps:
-        </span>
-        <input
-          value={steps}
-          onChange={handleStepsChange}
-          className="p-2 appearance-none outline-none ring-0 border rounded-md w-full text-sm font-mono"
-        />
-        <span className="font-semibold text-sm sm:text-md">Seed:</span>
-        <input
-          value={seeds}
-          onChange={handleSeedChange}
-          className="p-2 appearance-none outline-none ring-0 border rounded-md w-full text-sm font-mono"
-        />
+        <div className="grid grid-cols-2 gap-2 w-full">
+          <div>
+            <span className="font-semibold text-sm sm:text-md">
+              Inference steps:
+            </span>
+            <input
+              value={steps}
+              disabled={isCreating}
+              onChange={handleStepsChange}
+              className="p-2 appearance-none outline-none ring-0 border rounded-md w-full text-sm font-mono"
+            />
+          </div>
+          <div>
+            <span className="font-semibold text-sm sm:text-md">Seed:</span>
+            <input
+              value={seeds}
+              disabled={isCreating}
+              onChange={handleSeedChange}
+              className="p-2 appearance-none outline-none ring-0 border rounded-md w-full text-sm font-mono"
+            />
+          </div>
+        </div>
         <div className="grid grid-cols-2 gap-2 w-full">
           <div>
             <span className="font-semibold text-sm sm:text-md">Width:</span>
             <input
               value={width}
+              disabled={isCreating}
               onChange={handleWidthChange}
               className="p-2 appearance-none outline-none ring-0 border rounded-md w-full text-sm font-mono"
             />
@@ -132,6 +143,7 @@ const GeneratorPanel = (props: Props) => {
             <span className="font-semibold text-sm sm:text-md">Height:</span>
             <input
               value={height}
+              disabled={isCreating}
               onChange={handleHeightChange}
               className="p-2 appearance-none outline-none ring-0 border rounded-md w-full text-sm font-mono"
             />
@@ -140,17 +152,18 @@ const GeneratorPanel = (props: Props) => {
         <div>
           <button
             onClick={() => request()}
+            disabled={isCreating}
             className={`p-2 px-4 text-sm border rounded-md w-full ${
               isCreating
                 ? "bg-zinc-100 hover:bg-zinc-50 animate-pulse"
-                : "bg-green-100 hover:bg-green-50 border-green-200 drop-shadow-sm"
+                : "bg-[#3B8FB5] hover:bg-[#499abc] transition-all duration-200 text-white font-bold tracking-widest border-[#38AFCD] drop-shadow-sm"
             } `}
           >
             {isCreating ? `${formatTime(elapsedTime)}` : "Generate"}
           </button>
         </div>
       </div>
-      <div>{<ImageViewer image={image} />}</div>
+      <div className="min-w-[250px]">{<ImageViewer image={image} />}</div>
     </div>
   );
 };
