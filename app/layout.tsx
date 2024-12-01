@@ -15,7 +15,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Butterfly AI",
-  description: "Generate images using the Butterfly AI.",
+  description:
+    "Generate images using the Butterfly AI. Created by Baidar Gul (https://www.linkedin.com/in/baidargul/) +923438793471",
 };
 
 export default function RootLayout({
