@@ -89,6 +89,12 @@ const GeneratorPanel = (props: Props) => {
   return (
     <div className="flex flex-col-reverse mt-4 sm:mt-0 sm:flex-row justify-center gap-2 sm:gap-10 w-full bg-zinc-50 drop-shadow-md rounded-md p-10">
       <div className="flex flex-col gap-2 w-full">
+        <div className=" gap-1 items-center hidden sm:flex -mt-4">
+          <span className="text-4xl first-letter:font-semibold">Butterfly</span>
+          <span className="px-2 bg-zinc-50 text-xs rounded border border-zinc-300">
+            AI
+          </span>
+        </div>
         <span className="font-semibold text-sm sm:text-md">Image Prompt:</span>
         <textarea
           disabled={isCreating}
@@ -149,7 +155,7 @@ const GeneratorPanel = (props: Props) => {
             />
           </div>
         </div>
-        <div>
+        <div className="mt-2">
           <button
             onClick={() => request()}
             disabled={isCreating}
@@ -163,7 +169,15 @@ const GeneratorPanel = (props: Props) => {
           </button>
         </div>
       </div>
-      <div className="min-w-[250px]">{<ImageViewer image={image} />}</div>
+      <div>
+        <div className="flex gap-1 items-center mb-4 -mt-4 sm:hidden">
+          <span className="text-4xl first-letter:font-semibold">Butterfly</span>
+          <span className="px-2 bg-zinc-50 text-xs rounded border border-zinc-300">
+            AI
+          </span>
+        </div>
+        <div className="min-w-[250px]">{<ImageViewer image={image} />}</div>
+      </div>
     </div>
   );
 };
