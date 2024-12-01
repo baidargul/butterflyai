@@ -8,24 +8,7 @@ type Props = {};
 const Controls = (props: Props) => {
   const [images, setImages] = useState<
     { prompt: string; image: string; created_at: string }[]
-  >([
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/01.jpg", created_at: "" },
-    { prompt: "This is a demo", image: "/images/02.jpg", created_at: "" },
-  ]);
+  >([]);
 
   const handleOldImageClick = (image: {
     prompt: string;
@@ -47,12 +30,12 @@ const Controls = (props: Props) => {
             return (
               <div
                 key={i}
-                className="flex flex-col gap-1 cursor-pointer select-none mb-1"
+                className="flex flex-col gap-1 cursor-pointer select-none mb-1 overflow-hidden"
               >
                 <ImageViewer image={image.image} />
                 <div
                   onClick={() => handleOldImageClick(image)}
-                  className="tracking-wide p-1 bg-gradient-to-r from-white to-zinc-50 border border-zinc-200 rounded text-xs line-clamp-3 italic active:scale-95 transition-all duration-100 ease-in-out"
+                  className="tracking-wide p-1 bg-gradient-to-r from-white to-zinc-50 border border-zinc-200 rounded text-xs line-clamp-1 italic active:scale-95 transition-all duration-100 ease-in-out"
                 >
                   {image.prompt}
                 </div>
